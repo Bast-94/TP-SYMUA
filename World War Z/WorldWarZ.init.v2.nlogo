@@ -1,8 +1,10 @@
 breed [individus individu]
-
+globals [steps]
 individus-own
 [
   infecte?
+  attacker?
+  vigilent?
 ]
 
 patches-own [
@@ -11,6 +13,7 @@ patches-own [
 
 to init-simulation
    __clear-all-and-reset-ticks
+  let step 0
    initialisation-patches
    create-individus nb-individus
    [
@@ -18,6 +21,8 @@ to init-simulation
     move-to one-of patches with [accessible?]
     set color green
     set infecte? false
+    set attacker? false
+    set vigilent? false
    ]
    initialisation-epidemie
 end
@@ -34,20 +39,88 @@ end
 to initialisation-epidemie
   ask n-of (taux-infectes-init * count individus) individus
     [ devient-infecte ]
+
 end
 
 to devient-infecte
   set infecte? true
   set color red
   set shape "ghost"
+  if random-float 1 < taux-hostilite
+  [
+    set attacker? true
+  ]
 end
 
+to move
+  let deplacement random-float dist-max-deplacement
+  ifelse [ accessible?] of patch-ahead deplacement
+  [
+    fd deplacement
+    rt random 90 - 30
+  ]
+  [
+    set heading heading - 180 ;
+  ]
+
+end
+
+to eat
+  if infecte?
+  [
+    let nearby-individus other individus with [ not infecte? ] in-radius distance-infection
+    ifelse count nearby-individus >= 1 and random-float 1 < proba-infection
+    [
+      let mate one-of nearby-individus
+      ask mate
+      [
+        devient-infecte
+      ]
+    ]
+
+    [
+      if attacker?
+      [
+      set nearby-individus other individus with [ not infecte? ] in-radius distance-perception
+      if count nearby-individus >= 1
+      [
+        let mate one-of nearby-individus
+        face mate
+      ]
+      ]
+
+    ]
+
+  ]
+end
+
+to survive
+  if not infecte? and vigilent?
+  [
+    let nearby-individus other individus with [ infecte? ] in-radius distance-perception
+      if count nearby-individus >= 1
+      [
+        let mate one-of nearby-individus
+        face mate
+        set heading heading -  180 ; Effectue une rotation de 180 degrés dans la direction opposée
+      ]
+  ]
+end
 
 to go
   ; A vous de jouer !
+  set steps steps + 1
+  ask individus [
+    move
+    eat
+    survive
+  ]
+  if  count individus with [infecte?] = count individus
+  [
+    stop
+  ]
   tick
 end
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 268
@@ -70,8 +143,8 @@ GRAPHICS-WINDOW
 40
 -40
 40
-0
-0
+1
+1
 1
 ticks
 30.0
@@ -117,7 +190,7 @@ dist-max-deplacement
 dist-max-deplacement
 0
 5
-3.0
+5.0
 0.5
 1
 NIL
@@ -149,7 +222,7 @@ taux-infectes-init
 taux-infectes-init
 0
 1
-0.01
+0.1
 0.01
 1
 NIL
@@ -164,7 +237,7 @@ distance-infection
 distance-infection
 0
 5
-3.0
+1.0
 0.5
 1
 NIL
@@ -179,7 +252,7 @@ proba-infection
 proba-infection
 0
 1
-0.6
+0.1
 0.01
 1
 NIL
@@ -224,7 +297,7 @@ distance-perception
 distance-perception
 0
 10
-6.0
+10.0
 1
 1
 NIL
@@ -269,6 +342,83 @@ Mobilité des individus
 11
 0.0
 1
+
+PLOT
+924
+405
+1299
+665
+Evolution de l'infection
+NIL
+NIL
+0.0
+10.0
+0.0
+1.0
+true
+false
+"" ""
+PENS
+"infection rate" 1.0 0 -2139308 true "" "plot count individus with [infecte?] / count individus"
+
+SLIDER
+0
+386
+172
+419
+taux-hostilite
+taux-hostilite
+0
+1
+1.0
+0.01
+1
+NIL
+HORIZONTAL
+
+SLIDER
+0
+420
+172
+453
+taux-vigilence
+taux-vigilence
+0
+1
+0.0
+0.01
+1
+NIL
+HORIZONTAL
+
+PLOT
+1450
+398
+1650
+548
+plot 1
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot count individus with [attacker?]"
+
+MONITOR
+182
+79
+239
+124
+steps
+steps
+17
+1
+11
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -616,7 +766,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.2.1
+NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
