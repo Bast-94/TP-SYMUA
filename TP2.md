@@ -40,7 +40,29 @@ Les <code>people</code> peuvent:</li>
 <h2 id="expérimentation-variation-des-différents-paramètres">Expérimentation, variation des différents paramètres</h2>
 <h3 id="avec-2-communautés">Avec 2 communautés</h3>
 <p>Dans les études avec deux communautés on se concentrera sur l’influence de <code>percent_similar_wanted</code> sur la répartition des groupes dans la carte:</p>
-<h2 id="idées-à-ajouter-au-modèle">Idées à ajouter au modèle</h2>
+
+<table>
+<thead>
+<tr>
+<th><code>percent_similar_wanted</code></th>
+<th>observations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.05</td>
+<td></td>
+</tr>
+<tr>
+<td>0.5</td>
+<td></td>
+</tr>
+<tr>
+<td>0.9</td>
+<td></td>
+</tr>
+</tbody>
+</table><h2 id="idées-à-ajouter-au-modèle">Idées à ajouter au modèle</h2>
 <ul>
 <li>Faire en sorte que chaque individu ait un <code>percent_similar_wanted</code>personnel, en y initialisant à chaque individu (<code>people</code>) un taux compris entre <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.64444em; vertical-align: 0em;"></span><span class="mord">0</span></span></span></span></span> et <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.64444em; vertical-align: 0em;"></span><span class="mord">1</span></span></span></span></span> ,</li>
 <li>Pouvoir créer une stratégie de au sein de chaque communauté pour s’organiser sur les place à prendre ( implémentation ambitieuse)</li>
