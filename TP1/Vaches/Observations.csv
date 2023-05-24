@@ -1,0 +1,13 @@
+Number,Energy-from-grass,Birth-energy,Observation,numéro du fichier csv d'observation
+200,10,50,"La population des patures décroit et la population des vaches croit dans une première phase et les deux se stabilisent, la population des vaches se mainient au vosinage de 280 ",7
+50,10,50,"La population des patures décroit et la population des vaches croit dans une première phase et les deux se stabilisent, la population des vaches se mainient au vosinage de 280 ",8
+10,10,50,"La population des patures décroit et la population des vaches croit dans une première phase et les deux se stabilisent, la population des vaches se mainient au vosinage de 280 ",9
+50,100,50,On remarque une forte augmentation de la population des vaches qui culmine aux alentours de 5430 pour baisser et stagner entre 3100 et 3300,10
+50,50,50,On remarque une forte augmentation de la population des vaches qui culmine aux alentours de 3000 pour baisser et stagner entre 1500 et 1700,11
+50,10,50,"La population des patures décroit et la population des vaches croit dans une première phase et les deux se stabilisent, la population des vaches se mainient au vosinage de 300 ",12
+50,5,50,"Les courbes ont la même allure que précedemment, à la seule différence que la population des vaches se maintient au voisinnage de 100",13
+50,0,50,La population des vaches est nulle,Pas d'observation
+50,10,100,La population des vaches se maintient à ~280 et celle des patures à ~50,14
+50,10,50,La population des vaches se maintient à ~280 et celle des patures à ~50,15
+50,10,10,"On observe un pic de population des vaches à 1200, puis la courbe oscille entre 220 et 325 ",16
+50,10,2,Même allure que la précédente analyse à la différrence que l'amplitude de variation est cette fois située entre 150 et 360,17
