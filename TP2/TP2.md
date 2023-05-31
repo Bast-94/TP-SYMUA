@@ -41,7 +41,7 @@ Les `people` peuvent:
 Dans les études avec deux communautés on se concentrera sur l'influence de `percent_similar_wanted` sur la répartition des groupes dans la carte:
 | `percent_similar_wanted` | observations | |
 |--|--|--|
-| 0.05 | On remarque que l'intégralité de la population est très rapidement joyeuse et la répartition des groupes est diversifiée| ![img](./images/five.PNG) |
+| 0.05 | On remarque que l'intégralité de la population est très rapidement joyeuse et la répartition des groupes est diversifiée| ![img](https://github.com/Bast-94/TP-SYMUA/blob/main/TP2/images/five.PNG) |
 |0.5|On remarque que l'intégralité de la population est moins rapidement joyeuse et des régions de la carte sont uniformément composée que d'un seul groupe|![img](./images/fifty_percent.PNG) |
 |0.9| La quasi intégralité de la population n'est pas satisfaite, et la répartition des groupes est sans cesse diversifiée  | ![img](./images/ninety.PNG)|
 ### Avec 5 communautés
