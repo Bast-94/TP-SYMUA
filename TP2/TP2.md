@@ -38,15 +38,17 @@ Les `people` peuvent:
 
 ## Expérimentation, variation des différents paramètres
 ### Avec 2 communautés
+Voici une allure de l'état initial:
+![img](https://github.com/Bast-94/TP-SYMUA/blob/main/TP2/images/initial_state.PNG)
 Dans les études avec deux communautés on se concentrera sur l'influence de `percent_similar_wanted` sur la répartition des groupes dans la carte:
 | `percent_similar_wanted` | observations | |
 |--|--|--|
 | 0.05 | On remarque que l'intégralité de la population est très rapidement joyeuse et la répartition des groupes est diversifiée| ![img](https://github.com/Bast-94/TP-SYMUA/blob/main/TP2/images/five.PNG) |
-|0.5|On remarque que l'intégralité de la population est moins rapidement joyeuse et des régions de la carte sont uniformément composée que d'un seul groupe|![img](./images/fifty_percent.PNG) |
-|0.9| La quasi intégralité de la population n'est pas satisfaite, et la répartition des groupes est sans cesse diversifiée  | ![img](./images/ninety.PNG)|
+|0.5|On remarque que l'intégralité de la population est moins rapidement joyeuse et des régions de la carte sont uniformément composée que d'un seul groupe|![img](https://github.com/Bast-94/TP-SYMUA/blob/main/TP2/images/fifty_percent.PNG) |
+|0.9| La quasi intégralité de la population n'est pas satisfaite, et la répartition des groupes est sans cesse diversifiée  | ![img](https://github.com/Bast-94/TP-SYMUA/blob/main/TP2/images/ninety.PNG)|
 ### Avec 5 communautés
 Dans le cas d'une analyse avec 5 groupes existants et `percent_similar_wanted` mis à 50% nous avons une satisfaction totale qui croît plus lentement. Cela peut s'expliquer par le fait qu'un individu a plus de chance d'être entouré d'autres d'un groupe différent, donc à chaque itération il sera plus probable qu'une part des individus soient encore insatisfaits. En terme de répartition les 5 groupes se concentrent dans des régions bien délimitées.
-![img](./images/fivegroups.PNG)
+![img]([./images/fivegroups.PNG](https://github.com/Bast-94/TP-SYMUA/blob/main/TP2/images/fivegroups.PNG))
 
 ## Idées à ajouter au modèle
 
